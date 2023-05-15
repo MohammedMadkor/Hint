@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Montserrat:wght@800&family=Poppins:wght@400;700&family=Roboto&display=swap');
+
+:root{
+  --main-color:#0061ae;
+  --main-font:'Poppins';
+}
+.main-color{
+  color: var(--main-color);
+}
+.main-background{
+  background-color: var(--main-color);
+}
+body{
+  font-family: var(--main-font);
+}
+.text{
+  color: var(--main-color);
+}
+.main-nav{
+  background-color: white !important;
+  color: black !important;
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.16), 2px 2px 2px rgba(0, 0, 0, 0.16);
+}
+.login{
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  
+}
+.login:hover{
+  background-color: white ;
+  color:var(--main-color) !important;
+  font-weight: bold;
+  border: 1px solid var(--main-color) !important;
+}
+.link-size{
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-medium) 35px/53px var(--unnamed-font-family-poppins);
+letter-spacing: var(--unnamed-character-spacing-0);
+text-align: left;
+font: normal normal medium 35px/53px Poppins;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1;
+}
+.Doc{
+  color: var(--main-color);
+  font: normal normal bold 30px Poppins;
+}
+
+.icon-nav{
+  color: var(--main-color);
+  font-size: 30px;
+}
+.place{
+display: inline-block;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+/* section 1 */
+
+.header{
+  background-image: url(../images/group-hospital-doctors-over-health-care-clinic-background-89857953.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 150vh;
+  position: relative;
+  
+  }
+  
+  .header-layer{
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.189);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    
+  }
+  .desc{
+      color: white;
+      font-size: 50px;
+      font-weight: bold;
+      margin-left: 5rem;
+      margin-top: 2rem;
+  }
+
+/* section About */
+.layer1{
+  background-color: var(--main-color);
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  position: relative;
+  
+}
+.layer2{
+  background-color:var(--main-color);
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  position: relative;
+  left: 25%;
+  bottom: 25%;
+}
+.smile{
+  position: relative;
+  top: 15%;
+  z-index: 9999999999;
+  left: 10%;
+  width: 225px;
+  height: 240px;
+  border-radius: 10px;
+  
+}
+
+.about{
+  font: normal normal normal 25px Poppins ;
+}
+
+/* section why choose Docplace */
+.layer-icon{
+  background-color:  #F3F3F3 ;
+  padding-bottom: 30px;
+ }
+ 
+ .card{
+   background-color: #DCEDFA;
+   transition: all 1s;
+ }
+ .icon-item{
+   color: var(--main-color);
+   transition: all 1s;
+ }
+ .span-custom{
+   color: var(--main-color);
+   font: normal normal bold 30px Poppins;
+   transition: all 1s;
+ }
+ .sora{
+   width: 65px;
+ }
+ .card-choose:hover .span-custom{
+   color: white;
+ }
+ .card-choose:hover .icon-item{
+   color: white;
+ }
+ .card-choose:hover{
+   background-color: var(--main-color);
+   color: white;
+ }
+
+ /* section services */
+ .section{
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: inset 3px 3px 3px #00000029, 3px 3px 3px #00000029;
+border-radius: 5px;
+opacity: 1;
+padding-top: 20px;
+}
+.service-img{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+border: #707070 1px solid;
+
+transition: all 0.5s;
+}
+.services:hover .service-img{
+ transform: scale(1.1);
+}
+/* section category */
+.carousel-indicators{
+  position: static !important;
+}
+
+.carousel-indicators button{
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid var(--main-color) !important;
+  border-radius: 50%;
+  background-color: white !important;
+
+}
+.carousel-indicators .active{
+  background-color: var(--main-color) !important;
+}
+.describe-category{
+  position: absolute;
+  bottom: 25px;
+  left: 15px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+border-radius: 5px;
+  padding: 0;
+  background-color: var(--main-color);
+  text-align: center;
+  transition: all 0.1s;
+}
+.dropdown-menu a{
+  color: var(--main-color) !important;
+}
+.describe-category:hover {
+  background-color: white !important;
+  border: 1px solid var(--main-color) !important;
+}
+.describe-category:hover p {
+color: var(--main-color) !important;  
+}
+
+/* section doctors */
+.doctor-description{
+  width: 100%;
+  height: 100%;
+ 
+ 
+}
+.doctor{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: inset 0px 3px 6px 4px  #DCEDFA, 0px 3px 6px #DCEDFA;
+  border-radius: 15px;
+  opacity: 1;
+}
+
+
+ .carousel-control-prev{
+background-color: var(--main-color) !important;
+    position: relative;
+    left: 85%;
+    top: 85px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+ }
+  .carousel-control-next{
+    background-color: var(--main-color) !important;
+    position: relative;
+    left: 90%;
+    top: 45px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+  }
+  .card-doctor{
+    width: 18rem;
+    background-color: #DCEDFA;
+  border-radius: 5px;
+  }
+
+/* section talk about us  */
+.patient{
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+}
+.circle{
+  width: 80px;
+  height: 80px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  position: relative;
+}
+.circle img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  left: 10%;
+}
+
+/* section expert talken  */
+.parent{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: inset 3px 3px 3px #dcedfa, 3px 3px 3px #dcedfa;
+  border-radius: 20px;
+  opacity: 1;
+  padding: inherit;
+  position: relative;
+}
+.triangle{
+  width: 90%;
+  margin: 3.5rem auto;
+  height: 160px;
+  background-color: var(--main-color);
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center; 
+}
+
+.triangle img{
+width: 90%;
+height: 190px;
+margin-top: 3rem;
+border-radius: 15px;
+position: absolute;
+bottom: 7%;
+transition: all 1s;
+}
+.triangle-desc{
+width: 90%;
+margin: auto;
+}
+
+.triangle2{
+width: 50%;
+height: 105px;
+background-color: var(--main-color);
+border-radius: 15px;
+position: relative;
+display: flex;
+justify-content: center;
+margin: 2rem 1rem;
+}
+.triangle2 img{
+width: 90%;
+height: 110px;
+border-radius: 15px;
+position: relative;
+bottom: 10%;
+transition: all 1s;
+}
+.triangle2-desc{
+width: 50%;
+padding: 10px;
+}
+.triangle:hover img{
+transform: scale(1.1);
+}
+.triangle2:hover img{
+transform: scale(1.1);
+}
+
+
+
+
+/* register of patient */
+
+.background-form{
+    background-image: url(../images/medical-2.jpg);
+    background-position: center center;
+    background-size: cover;
+    padding-bottom: 20px;
+
+}
+.icon-form{
+        font-size: 30px;
+        font-weight: bold;
+ }
+ .main-background{
+    background-color: var(--main-color);
+  }
+  .text{
+    color: var(--main-color);
+  }
+ .left-side{
+  margin-bottom: 7px;
+ }
+
+
+  /* footer */
+
+  .design-footer{
+    background-color: var(--main-color);
+  }
+  .icon-footer{
+    font-size: 35px;
+  }
+  .mapouter{
+    position:relative;
+    text-align:right;
+    height:100%;
+    width:100%;
+  }
+  .gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    height:100%;
+    width:100%;
+  }
+
+  .square{
+    background: #EAEAEA 0% 0% no-repeat padding-box;
+    border: 1px solid #EAEAEA;
+    border-radius: 2px;
+    opacity: 1;
+    width: 45px;
+    height: 40px;
+    color: #B7B1B1;
+    margin-left: 10px;
+  }
+
+
+  /* prescrption */
+  .circle-plus{
+    width: 20px;
+    height: 20px;
+    border-radius: 50% ;
+    background-color: white;
+  }
+  .hours img{
+    width: 40px;
+    height: 40px;
+  }
+
+  .table-presc {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table-presc th, td {
+    border: 1px solid rgb(180, 182, 201);
+    padding: 8px;
+    
+  }
+  
+  .table-presc th {
+    background-color: #f2f2f2;
+  }
+  
+ .table-presc tr:hover {
+    background-color: #f5f5f5;
+  }
+
+
+  /* profile doctor */
+  .data-doctor{
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: inset 0px 1px 3px #00000029, 0px 2px 6px #00000029;
+border-radius: 5px 5px 0px 0px;
+opacity: 1;
+  }
+  .img-doctor{
+    width: 150px;
+    height: 150px;
+  }
+.appoinment{
+background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: inset 0px 2px 4px #00000029, 0px 2px 4px #00000029;
+opacity: 1;
+}
+.img-patient{
+  height: 200px;
+  border-radius: 10px;
+}
+.prescrption{
+  background-color: #CAD8FF;
+margin-left: 40px;
+}
+.data-patient img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.rec img{
+   width: 100px;
+    height: 100px;
+    margin: 10px;
+    object-fit: fill;
+    border-radius: 50%;
+    background-color: var(--main-color);
+ 
+  }
+  .upload {
+    margin-top: 3px;
+    width: 200px;
+    color: rgb(255 255 255);
+    cursor: pointer;
+    background-color: var(--main-color);
+    text-align: center;
+    padding: 5px;
+} 
+/* Appoinment Booking */
+.Book{
+  background-color: #DCEDFA;
+}
+.click{
+  cursor: pointer;
+}
+.appoin{
+  width: 100%;
+  height: 500px;
+}
