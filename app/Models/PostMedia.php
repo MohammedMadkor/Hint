@@ -9,4 +9,9 @@ class PostMedia extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function Post()
+    {
+        # code...
+        return $this->belongsTo(Post::class,'post_id','id');
+    }
 }

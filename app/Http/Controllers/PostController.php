@@ -6,6 +6,7 @@ use App\Http\Requests\EditPostRequest;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Category;
+use App\Models\comment;
 use App\Models\Post;
 use App\Models\PostMedia;
 use App\Models\Tag;
@@ -135,12 +136,54 @@ class PostController extends Controller
     {
         # code...
         $post = Post::with('PostMedia')->where('id',$id)->first();
+        $post->image = asset($post->image);
+        foreach ($post->PostMedia as $PostMedia) {
+            # code...
+            $PostMedia->imageMedia = asset($PostMedia->imageMedia);
+        }
         if($post) {
             $post->viewsCount = $post->viewsCount + 1;
             $post->save();
-            return view('post.viewpost',compact('post'));
+        }
+        return view('post.viewpost',compact('post'));
+
+
+    }
+
+    // public function search(Request $request)
+    // {
+    //     # code...
+    //     $search = $request->search;
+    //     $posts = Post::where('tittle','like','%'.$search.'%')->get();
+    //     return view('post.index',compact('posts'));
+    // }
+    public function active(Request $request)
+    {
+        # code...
+
+        $post = Post::where('id',$request->id)->first();
+        $post->active = $request->active;
+       $post->save();
+       return $post;
+
+    }
+    public function dashboard()
+    {
+        # code...
+        $posts = Post::get();
+        $comments = comment::get();
+        $countposts = 0;
+        $countcomment = 0;
+        foreach ($posts as $post) {
+            # code...
+            $countposts = $countposts + 1;
+        }
+        foreach ($comments as $comment) {
+            # code...
+            $countcomment = $countcomment + 1;
         }
 
+        return view('post.dashboard', compact(['posts','countposts','countcomment']));
 
     }
 }

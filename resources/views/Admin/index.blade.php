@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/media.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
 <!-- NavBar -->
@@ -19,8 +20,8 @@
 
  <div class="main-background">
     <div class="container text-white ">
-        <h5 class=" pt-2">Home / Appointments</h5>
-        <h1 class=" fw-bold pb-2"> Appointment</h1>
+        <h5 class=" pt-2">HINT / SYSTEM</h5>
+        <h1 class=" fw-bold pb-2"> HINT SYSTEM</h1>
     </div>
 
 </div>
@@ -205,7 +206,9 @@
 
                                 @endif
                             </td>
-                            <td></td>
+                            <td>
+                                <input type="checkbox"  name="active"  data-id="{{$admin->id}}"  {{$admin->active == 1 ? 'checked' : ''}}>
+                            </td>
                             <td>{{$admin->created_at}}</td>
                             <td>
                                 <a href="{{url('admin/update',$admin->id)}}">update</a>
@@ -231,6 +234,27 @@
 </div>
 
 </section>
+<script>
+    // send id of active admin to controller
+    $(document).ready(function(){
+                $('input[type="checkbox"]').click(function(){
+                    var id = $(this).attr('data-id');
+                    var active = $(this).prop('checked') == true ? 1 : 0;
+                    $.ajax({
+                        url: "{{ url('admin/active') }}",
+                        type: 'post',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            id: id,
+                            active: active
+                        },
+                        success: function(response){
+                            console.log(response);
+                        }
+                    });
+                });
+            });
+</script>
 
 
       <script src="../js/bootstrap.bundle.min.js"></script>

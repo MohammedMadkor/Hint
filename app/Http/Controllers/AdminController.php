@@ -52,6 +52,16 @@ class AdminController extends Controller
         }
         return redirect('admin');
     }
+    public function active(Request $request)
+    {
+        # code...
+
+        $admin = User::where('id',$request->id)->first();
+        $admin->active = $request->active;
+       $admin->save();
+       return $admin;
+
+    }
 
 
 }

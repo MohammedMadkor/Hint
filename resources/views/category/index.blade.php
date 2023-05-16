@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prescription</title>
     <link rel="shortcut icon" href="../images/24hours.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../css/all.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="{{asset('../css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('../css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('../css/style.css')}}">
+    <link rel="stylesheet" href="{{'../css/media.css'}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../js/all.min.js"></script>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
 <!-- NavBar -->
@@ -19,8 +23,8 @@
 
  <div class="main-background">
     <div class="container text-white ">
-        <h5 class=" pt-2">Home / Appointments</h5>
-        <h1 class=" fw-bold pb-2"> Appointment</h1>
+        <h5 class=" pt-2">HINT / SYSTEM</h5>
+        <h1 class=" fw-bold pb-2"> HINT SYSTEM</h1>
     </div>
 
 </div>
@@ -139,7 +143,9 @@
                             <tr>
                                 <th scope="row">{{$loop->index + 1}}</th>
                                 <td>{{$category->name}}</td>
-                                <td></td>
+                                <td>
+                                    <input type="checkbox"  name="active"  data-id="{{$category->id}}"  {{$category->active == 1 ? 'checked' : ''}}>
+                                </td>
                                 <td>{{$category->created_at}}</td>
                                 <td>
                                     <a href="{{url('category/delete',$category->id)}}">delete</a>
@@ -167,6 +173,27 @@
 </div>
 
 </section>
+<script>
+    // send id of active category to controller
+    $(document).ready(function(){
+                $('input[type="checkbox"]').click(function(){
+                    var id = $(this).attr('data-id');
+                    var active = $(this).prop('checked') == true ? 1 : 0;
+                    $.ajax({
+                        url: "{{ url('category/active') }}",
+                        type: 'post',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            id: id,
+                            active: active
+                        },
+                        success: function(response){
+                            console.log(response);
+                        }
+                    });
+                });
+            });
+</script>
 
 
       <script src="../js/bootstrap.bundle.min.js"></script>

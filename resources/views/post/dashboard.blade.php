@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/media.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 </head>
 <body>
 <!-- NavBar -->
@@ -84,36 +86,55 @@
 
 
             <div class="col-md-9">
-                <div class="container my-5">
-                    <table class="table table-striped">
+                <div class="container mt-5">
+                    <h1> total post {{$countposts}} </h1>
+                    <h1> total comment {{$countcomment}} </h1>
+
+
+                    <table class="table table-secondary">
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">POST TITTLE</th>
-                            <th scope="col">COMMENT</th>
-                            <th scope="col">NAME</th>
-                            <th scope="col">EMAIL</th>
-                            <th scope="col">ACTION</th>
+                            <th scope="col">TITLE</th>
+                            <th scope="col">AUTHOR</th>
+                            <th scope="col">CATEGORY</th>
+                            <th scope="col">ACTIVE</th>
+                            <th scope="col">COMMENTS</th>
+                            <th scope="col">VIEWS</th>
+                            <th scope="col">CREATED DATE</th>
+
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach ($comments as $comment)
+                            @foreach ($posts as $post)
                             <tr>
                                 <th scope="row">{{$loop->index + 1}}</th>
-                                <td>{{$comment->Post->tittle}}</td>
-                                <td>{{$comment->comment}}</td>
-                                <td>{{$comment->name}}</td>
-                                <td>{{$comment->email}}</td>
-                                <td><a href="{{url('comment/delete',$comment->id)}}">delete</a></td>
+                                <td><a href="{{url('post/views',$post->id)}}">{{$post->tittle}}</a></td>
+                                <td>{{$post->Auther->name}}</td>
+                                <td>{{$post->Category->name}}</td>
+                                <td>
+                                    <input type="checkbox"  name="active"  data-id="{{$post->id}}"  {{$post->active == 1 ? 'checked' : ''}}>
+                                </td>
+                                <td>
+                                @if (!is_null($post->Comment))
+                                    {{count($post->Comment)}}
+                                @else
+                                0
+                                @endif
+                                </td>
+                                <td>{{$post->viewsCount}}</td>
+                                <td>{{$post->created_at}}</td>
+
 
                             </tr>
-
                             @endforeach
 
 
 
                         </tbody>
                     </table>
+
+
                 </div>
 
 
@@ -127,6 +148,27 @@
 </div>
 
 </section>
+<script>
+    // send id of active post to controller
+    $(document).ready(function(){
+                $('input[type="checkbox"]').click(function(){
+                    var id = $(this).attr('data-id');
+                    var active = $(this).prop('checked') == true ? 1 : 0;
+                    $.ajax({
+                        url: "{{ url('post/active') }}",
+                        type: 'post',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            id: id,
+                            active: active
+                        },
+                        success: function(response){
+                            console.log(response);
+                        }
+                    });
+                });
+            });
+</script>
 
 
       <script src="../js/bootstrap.bundle.min.js"></script>

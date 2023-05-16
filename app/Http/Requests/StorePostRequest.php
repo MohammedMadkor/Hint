@@ -25,10 +25,23 @@ class StorePostRequest extends FormRequest
     {
         return [
             'tittle' =>'required',
-            'image' =>'required',
+            'image' =>'required|mimes:png,jpg',
             'cat_id' =>'required',
             'content' =>'required',
             'user_id' =>'required',
+            'imageMedia' => 'mimes:png,jpg'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'tittle.required' =>'tittle is required',
+            'image.required' =>'image is required',
+            'image.mimes' =>'image is must be png,jpg',
+            'cat_id.required' =>'cat_id is required',
+            'content.required' =>'content is required',
+            'user_id.required' =>'user_id is required',
+            'imageMedia.required' => 'imageMedia must be png,jpg ',
         ];
     }
 }

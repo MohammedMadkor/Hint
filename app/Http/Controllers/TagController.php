@@ -52,6 +52,16 @@ class TagController extends Controller
         return redirect('tag');
 
     }
+    public function active(Request $request)
+    {
+        # code...
+
+        $tag = Tag::where('id',$request->id)->first();
+        $tag->active = $request->active;
+       $tag->save();
+       return $tag;
+
+    }
 
 
 

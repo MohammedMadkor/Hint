@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hint</title>
+    <title>Prescription</title>
     <link rel="shortcut icon" href="../images/24hours.svg" type="image/x-icon">
-    <link rel="stylesheet" href="{{asset('../css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('../css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('../css/style.css')}}">
-    <link rel="stylesheet" href="{{'../css/media.css'}}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="../js/all.min.js"></script>
-        <script src="../js/jquery-3.6.0.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/media.css">
+
+
 </head>
 <body>
 <!-- NavBar -->
@@ -88,37 +86,53 @@
 
 
             <div class="col-md-9">
-    <div class="card" style="width: 18rem; ">
-        <div class="card-body">
-            <form action="{{url('tag/edit',$tag->id)}}" method="post">
-                @csrf
-                <div class="mb-3">
-                    <label for="name" class="form-label">name</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{$tag->name}}">
-                    @error('name')
-                        <span class="text-danger err-msg-name" role="alert">
-                            <strong>
-                                {{ $message }}
-                            </strong>
-                        </span>
-                    @enderror
+                <div class="container">
+                    <table class="table table-secondary">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th>post tittle</th>
+                            <th scope="col">imageMedia</th>
+                            <th scope="col">description</th>
+                            <th scope="col">ACTION</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($medias as $media)
+                            <tr>
+                                <th scope="row">{{$loop->index}}</th>
+                                <td>{{$media->Post->tittle}}</td>
+                                <td><img src="{{$media->imageMedia}}" alt="" width="200px" height="100px"></td>
+                                <td>{{$media->description}}</td>
+                                <td>
+                                    <a href="{{url('media/delete',$media->id)}}">delete</a>
+                                </td>
+                              </tr>
+
+                            @endforeach
+
+
+
+                        </tbody>
+                      </table>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+
 
         </div>
-      </div>
+
+
     </div>
-
-
-</div>
 
 </div>
 </div>
 
 </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  </body>
+
+
+      <script src="../js/bootstrap.bundle.min.js"></script>
+      <script src="../js/index.js"></script>
+</body>
+
 </html>

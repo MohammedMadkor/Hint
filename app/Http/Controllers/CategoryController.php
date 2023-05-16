@@ -51,4 +51,14 @@ class CategoryController extends Controller
         ]);
         return redirect('category');
     }
+    public function active(Request $request)
+    {
+        # code...
+
+        $category = Category::where('id',$request->id)->first();
+        $category->active = $request->active;
+       $category->save();
+       return $category;
+
+    }
 }
